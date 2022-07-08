@@ -1,6 +1,15 @@
 #include "Calculator.h"
+wxBEGIN_EVENT_TABLE(Calculator, wxFrame)
+wxEND_EVENT_TABLE()
+
+void Calculator::OnButtonClicked(wxCommandEvent& _evt)
+{
+
+}
+
 Calculator::Calculator() :wxFrame(nullptr, wxID_ANY, "Long KEKulator", wxPoint(0, 100), wxSize(540, 300))
 {
+	func = new wxButton * [20];
 	textBox = new wxTextCtrl(this, 1000, "", wxPoint(0,100), wxSize(521,50));
 
 	WeW = new wxButton(this, 3121, "W\nk\ne\nK", wxPoint(250, 40), wxSize(20, 60));
@@ -29,6 +38,29 @@ Calculator::Calculator() :wxFrame(nullptr, wxID_ANY, "Long KEKulator", wxPoint(0
 	Mod = new wxButton(this, 1019, "Mod[%]", wxPoint(420, 150), wxSize(50, 50));
 	Dec = new wxButton(this, 1020, "Decimal", wxPoint(470, 150), wxSize(50, 50));
 
-
+	func[0] = NumButton1;
+	func[1]	= NumButton2;
+	func[2] = NumButton3;
+	func[3] = NumButton4;
+	func[4] = NumButton5;
+	func[5] = NumButton6;
+	func[6] = NumButton7;
+	func[7] = NumButton8;
+	func[8] = NumButton9;
+	func[9] = NumButton10;
+	func[10] = Plus;
+	func[11] = Minus;
+	func[12] = Multi;
+	func[13] = Divide;
+	func[14] = Equals;
+	func[15] = C;
+	func[16] = Binary;
+	func[17] = Hexi;
+	func[18] = Mod;
+	func[19] = Dec;
+	for (size_t i = 0; i < 21; i++)
+	{
+		func[i]->Bind(wxEVT_COMMAND_BUTTON_CLICKED, &Calculator::OnButtonClicked, this);
+	}
 
 }	

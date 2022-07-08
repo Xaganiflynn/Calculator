@@ -4,6 +4,10 @@
 class Calculator : public wxFrame
 {
 public:
+	wxDECLARE_EVENT_TABLE();
+
+	void OnButtonClicked(wxCommandEvent& _evt);
+
 	Calculator();
 			
 	wxButton* NumButton1;
@@ -30,7 +34,7 @@ public:
 	wxButton* Mod;
 	wxButton* Dec;
 
-
+	wxButton** func;
 
 	wxTextCtrl* textBox;
 private:
