@@ -4,8 +4,14 @@
 class Calculator : public wxFrame
 {
 public:
+	wxDECLARE_EVENT_TABLE();
+
+public:
 	Calculator();
-			
+	wxButton** func;
+
+	void OnButtonClicked(wxCommandEvent& _evt);
+
 	wxButton* NumButton1;
 	wxButton* NumButton2;
 	wxButton* NumButton3;
