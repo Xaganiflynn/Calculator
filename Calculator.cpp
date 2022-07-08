@@ -8,64 +8,64 @@ void Calculator::OnButtonClicked(wxCommandEvent& _evt)
 	switch (axe)
 	{
 	case 1001:
-		*textBox << "1";
+		textBox->AppendText("1");
 		break;
 	case 1002:
-		*textBox << "2";
+		textBox->AppendText("2");
 		break;
 	case 1003:
-		*textBox << "3";
+		textBox->AppendText("3");
 		break;
 	case 1004:
-		*textBox << "4";
+		textBox->AppendText("4");
 		break;
 	case 1005:
-		*textBox << "5";
+		textBox->AppendText("5");
 		break;
 	case 1006:
-		*textBox << "6";
+		textBox->AppendText("6");
 		break;
 	case 1007:
-		*textBox << "7";
+		textBox->AppendText("7");
 		break;
 	case 1008:
-		*textBox << "8";
+		textBox->AppendText("8");
 		break;
 	case 1009:
-		*textBox << "9";
+		textBox->AppendText("9");
 		break;
 	case 1010:
-		*textBox << "10";
+		textBox->AppendText("10");
 		break;
 	case 1011:
-		*textBox << "+";
+		textBox->AppendText("+");
 		break;
 	case 1012:
-		*textBox << "-";
+		textBox->AppendText("-");
 		break;
 	case 1013:
-		*textBox << "*";
+		textBox->AppendText("*");
 		break;
 	case 1014:
-		*textBox << "/";
+		textBox->AppendText("/");
 		break;
 	case 1015: //this is the equals sign. might get rid of later for functions
-		*textBox << "=";
+		textBox->AppendText("=");
 		break;
 	case 1016:
-		*textBox << "C";
+		textBox->AppendText("C.. ocean Man");
 		break;
 	case 1017:
-		*textBox << "you're now BI";
+		textBox->AppendText("you're now BI");
 		break;
 	case 1018:
-		*textBox << "Hex.. or Polymorph";
+		textBox->AppendText("Hex.. or Polymorph");
 		break;
 	case 1019:
-		*textBox << "Mod..erator";
+		textBox->AppendText("Mod..ed minecraft");
 		break;
 	case 1020:
-		*textBox << "Dec..ember";
+		textBox->AppendText("Dec..ember");
 		break;
 	}
 }
@@ -121,7 +121,7 @@ Calculator::Calculator() :wxFrame(nullptr, wxID_ANY, "Long KEKulator", wxPoint(0
 	func[17] = Hexi;
 	func[18] = Mod;
 	func[19] = Dec;
-	for (size_t i = 0; i < 21; i++)
+	for (size_t i = 0; i < 20; i++)
 	{
 		func[i]->Bind(wxEVT_COMMAND_BUTTON_CLICKED, &Calculator::OnButtonClicked, this);
 	}

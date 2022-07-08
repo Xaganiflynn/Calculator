@@ -7,9 +7,10 @@ public:
 	wxDECLARE_EVENT_TABLE();
 
 	void OnButtonClicked(wxCommandEvent& _evt);
+public:
 
 	Calculator();
-			
+public:			
 	wxButton* NumButton1;
 	wxButton* NumButton2;
 	wxButton* NumButton3;
