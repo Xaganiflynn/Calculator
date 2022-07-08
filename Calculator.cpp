@@ -52,7 +52,7 @@ void Calculator::OnButtonClicked(wxCommandEvent& _evt)
 	case 1015: //this is the equals sign. might get rid of later for functions
 		textBox->AppendText("=");
 		break;
-	case 1016:
+	case 1016: //this is clear
 		textBox->AppendText("C.. ocean Man");
 		break;
 	case 1017:
@@ -67,6 +67,10 @@ void Calculator::OnButtonClicked(wxCommandEvent& _evt)
 	case 1020:
 		textBox->AppendText("Dec..ember");
 		break;
+	default:
+		textBox->Clear();
+		break;
+
 	}
 }
 
