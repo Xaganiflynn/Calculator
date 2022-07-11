@@ -97,7 +97,7 @@ wxButton* ButtonFactory::Binary(wxWindow* window)
 
 wxButton* ButtonFactory::Hexi(wxWindow* window)
 {
-    return new wxButton(window, 1018, "Hexi", wxPoint(370, 150), wxSize(50, 50));
+    return new wxButton(window, 1018, "Hex", wxPoint(370, 150), wxSize(50, 50));
 }
 
 wxButton* ButtonFactory::Mod(wxWindow* window)
