@@ -12,6 +12,7 @@ public:
 
 	void OnButtonClicked(wxCommandEvent& _evt);
 
+#pragma region Buttons
 	wxButton* NumButton1;
 	wxButton* NumButton2;
 	wxButton* NumButton3;
@@ -35,7 +36,7 @@ public:
 	wxButton* Hexi;
 	wxButton* Mod;
 	wxButton* Dec;
-
+#pragma endregion
 
 
 	wxTextCtrl* textBox;

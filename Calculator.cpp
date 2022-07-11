@@ -1,4 +1,5 @@
 #include "Calculator.h"
+#include "ButtonFactory.h"
 wxBEGIN_EVENT_TABLE(Calculator, wxFrame)
 wxEND_EVENT_TABLE()
 
@@ -79,31 +80,30 @@ Calculator::Calculator() :wxFrame(nullptr, wxID_ANY, "Long KEKulator", wxPoint(0
 	func = new wxButton * [20];
 	textBox = new wxTextCtrl(this, 1000, "", wxPoint(0, 100), wxSize(521, 50));
 
-	WeW = new wxButton(this, 3121, "W\nk\ne\nK", wxPoint(250, 40), wxSize(20, 60));
-	NumButton1 = new wxButton(this, 1001, "1", wxPoint(200, 50), wxSize(50, 50));
-	NumButton2 = new wxButton(this, 1002, "2", wxPoint(150, 50), wxSize(50, 50));
-	NumButton3 = new wxButton(this, 1003, "3", wxPoint(100, 50), wxSize(50, 50));
-	NumButton4 = new wxButton(this, 1004, "4", wxPoint(50, 50), wxSize(50, 50));
-	NumButton5 = new wxButton(this, 1005, "5", wxPoint(0, 50), wxSize(50, 50));
+	WeW = ButtonFactory::WeW(this);
+	NumButton1 = ButtonFactory::NumButton1(this);
+	NumButton2 = ButtonFactory::NumButton2(this);
+	NumButton3 = ButtonFactory::NumButton3(this);
+	NumButton4 = ButtonFactory::NumButton4(this);
+	NumButton5 = ButtonFactory::NumButton5(this);
+	NumButton6 = ButtonFactory::NumButton6(this);
+	NumButton7 = ButtonFactory::NumButton7(this);
+	NumButton8 = ButtonFactory::NumButton8(this);
+	NumButton9 = ButtonFactory::NumButton9(this);
+	NumButton10 = ButtonFactory::NumButton10(this);
+	WEW = ButtonFactory::WEW(this);
 
-	NumButton6 = new wxButton(this, 1006, "6", wxPoint(0, 150), wxSize(50, 50));
-	NumButton7 = new wxButton(this, 1007, "7", wxPoint(50, 150), wxSize(50, 50));
-	NumButton8 = new wxButton(this, 1008, "8", wxPoint(100, 150), wxSize(50, 50));
-	NumButton9 = new wxButton(this, 1009, "9", wxPoint(150, 150), wxSize(50, 50));
-	NumButton10 = new wxButton(this, 1010, "0", wxPoint(200, 150), wxSize(50, 50));
-	WEW = new wxButton(this, 8672, "K\nE\nK\nW", wxPoint(250, 150), wxSize(20, 60));
+	Plus = ButtonFactory::Plus(this);
+	Minus = ButtonFactory::Minus(this);
+	Multi = ButtonFactory::Multi(this);
+	Divide = ButtonFactory::Divide(this);
+	Equals = ButtonFactory::Equals(this);
 
-	Plus = new wxButton(this, 1011, "+", wxPoint(270, 50), wxSize(50, 50));
-	Minus = new wxButton(this, 1012, "-", wxPoint(320, 50), wxSize(50, 50));
-	Multi = new wxButton(this, 1013, "*", wxPoint(370, 50), wxSize(50, 50));
-	Divide = new wxButton(this, 1014, "/", wxPoint(420, 50), wxSize(50, 50));
-	Equals = new wxButton(this, 1015, "=", wxPoint(470, 50), wxSize(50, 50));
-
-	C = new wxButton(this, 1016, "C", wxPoint(270, 150), wxSize(50, 50));
-	Binary = new wxButton(this, 1017, "Binary", wxPoint(320, 150), wxSize(50, 50));
-	Hexi = new wxButton(this, 1018, "Hexi", wxPoint(370, 150), wxSize(50, 50));
-	Mod = new wxButton(this, 1019, "Mod[%]", wxPoint(420, 150), wxSize(50, 50));
-	Dec = new wxButton(this, 1020, "Decimal", wxPoint(470, 150), wxSize(50, 50));
+	C = ButtonFactory::C(this);
+	Binary = ButtonFactory::Binary(this);
+	Hexi = ButtonFactory::Hexi(this);
+	Mod = ButtonFactory::Mod(this);
+	Dec = ButtonFactory::Dec(this);
 
 	func[0] = NumButton1;
 	func[1] = NumButton2;
@@ -124,7 +124,8 @@ Calculator::Calculator() :wxFrame(nullptr, wxID_ANY, "Long KEKulator", wxPoint(0
 	func[16] = Binary;
 	func[17] = Hexi;
 	func[18] = Mod;
-	func[19] = Dec;
+
+	func[19] = ButtonFactory::Dec(this);
 	for (size_t i = 0; i < 20; i++)
 	{
 		func[i]->Bind(wxEVT_COMMAND_BUTTON_CLICKED, &Calculator::OnButtonClicked, this);
