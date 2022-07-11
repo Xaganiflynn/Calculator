@@ -2,7 +2,8 @@
 #include "wx/wx.h"
 class ButtonFactory : public wxFrame
 {
-	wxDECLARE_EVENT_TABLE();
+public:
+	/*wxDECLARE_EVENT_TABLE();*/
 public:
 static wxButton* NumButton1(wxWindow* window);
 static wxButton* NumButton2(wxWindow* window);
