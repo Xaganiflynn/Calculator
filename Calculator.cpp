@@ -1,11 +1,15 @@
 #include "Calculator.h"
 #include "ButtonFactory.h"
+#include "Processor.h"
+
 wxBEGIN_EVENT_TABLE(Calculator, wxFrame)
 wxEND_EVENT_TABLE()
 
 void Calculator::OnButtonClicked(wxCommandEvent& _evt)
 {
 	int axe = _evt.GetId();
+	Processor* process = Processor::GetInstance();
+
 	switch (axe)
 	{
 	case 1001:
@@ -54,7 +58,7 @@ void Calculator::OnButtonClicked(wxCommandEvent& _evt)
 		textBox->AppendText("=");
 		break;
 	case 1016: //this is clear
-		textBox->AppendText("C.. ocean Man");
+		textBox->Clear();
 		break;
 	case 1017:
 		textBox->AppendText("you're now BI");
@@ -77,6 +81,7 @@ void Calculator::OnButtonClicked(wxCommandEvent& _evt)
 
 Calculator::Calculator() :wxFrame(nullptr, wxID_ANY, "Long KEKulator", wxPoint(0, 100), wxSize(540, 300))
 {
+
 	func = new wxButton * [20];
 	textBox = new wxTextCtrl(this, 1000, "", wxPoint(0, 100), wxSize(521, 50));
 
