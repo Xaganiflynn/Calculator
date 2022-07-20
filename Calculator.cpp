@@ -1,9 +1,12 @@
 #include "Calculator.h"
 #include "ButtonFactory.h"
 #include "Processor.h"
+#include <string>
 
 wxBEGIN_EVENT_TABLE(Calculator, wxFrame)
 wxEND_EVENT_TABLE()
+
+
 
 void Calculator::OnButtonClicked(wxCommandEvent& _evt)
 {
@@ -14,63 +17,168 @@ void Calculator::OnButtonClicked(wxCommandEvent& _evt)
 	{
 	case 1001:
 		textBox->AppendText("1");
+		if (operand == ' ')
+		{
+			n1 = (n1 * 10) + 1;
+		}
+		else
+		{
+			n2 =  (n2 * 10) + 1;
+		}
 		break;
 	case 1002:
 		textBox->AppendText("2");
+		if (operand == ' ')
+		{
+			n1 = (n1 * 10) + 2;
+		}
+		else
+		{
+			n2 = (n2 * 10) + 2;
+		}
 		break;
 	case 1003:
 		textBox->AppendText("3");
+		if (operand == ' ')
+		{
+			n1 = (n1 * 10) + 3;
+		}
+		else
+		{
+			n2 = (n2 * 10) + 3;
+		}
 		break;
 	case 1004:
 		textBox->AppendText("4");
+		if (operand == ' ')
+		{
+			n1 = (n1 * 10) + 4;
+		}
+		else
+		{
+			n2 = (n2 * 10) + 4;
+		}
 		break;
 	case 1005:
 		textBox->AppendText("5");
+		if (operand == ' ')
+		{
+			n1 = (n1 * 10) + 5;
+		}
+		else
+		{
+			n2 = (n2 * 10) + 5;
+		}
 		break;
 	case 1006:
 		textBox->AppendText("6");
+		if (operand == ' ')
+		{
+			n1 = (n1 * 10) + 6;
+		}
+		else
+		{
+			n2 = (n2 * 10) + 6;
+		}
 		break;
 	case 1007:
 		textBox->AppendText("7");
+		if (operand == ' ')
+		{
+			n1 = (n1 * 10) + 7;
+		}
+		else
+		{
+			n2 = (n2 * 10) + 7;
+		}
 		break;
 	case 1008:
 		textBox->AppendText("8");
+		if (operand == ' ')
+		{
+			n1 = (n1 * 10) + 8;
+		}
+		else
+		{
+			n2 = (n2 * 10) + 8;
+		}
 		break;
 	case 1009:
 		textBox->AppendText("9");
+		if (operand == ' ')
+		{
+			n1 = (n1 * 10) + 9;
+		}
+		else
+		{
+			n2 = (n2 * 10) + 9;
+		}
 		break;
 	case 1010:
-		textBox->AppendText("10");
+		textBox->AppendText("0");
+		if (operand == ' ')
+		{
+			n1 = (n1 * 10) + 0;
+		}
+		else
+		{
+			n2 = (n2 * 10) + 0;
+		}
 		break;
-	case 1011:
+	case 1011: // Addition
+		helper;
 		textBox->AppendText("+");
+		operand = '+';
 		break;
-	case 1012:
+	case 1012: // subtraction
+		helper;
 		textBox->AppendText("-");
+		operand = '-';
 		break;
-	case 1013:
+	case 1013: // multiplication
+		helper;
 		textBox->AppendText("*");
+		operand = '*';
 		break;
-	case 1014:
+	case 1014: // division
+		helper;
 		textBox->AppendText("/");
+		operand = '/';
 		break;
-	case 1015: //this is the equals sign. might get rid of later for functions
-		textBox->AppendText("=");
-		break;
-	case 1016: //this is clear
+	case 1015: // equals sign. 
 		textBox->Clear();
+		ActResult= process->AllPurpose(n1, n2, operand);
+		textBox->AppendText(to_string(ActResult));
+		operand = ' ';
+		n1 = ActResult;
+		n2 = 0;
+		helper = true;
 		break;
-	case 1017:
-		textBox->AppendText("you're now BI");
+	case 1016: // C - clear
+		helper;
+		textBox->Clear();
+		operand = ' ';
+		n1 = 0;
+		n2 = 0;
 		break;
-	case 1018:
-		textBox->AppendText("Hex.. or Polymorph");
+	case 1017: // Binary
+		helper;
+		resulta = process->ToBinaryString(ActResult);
+		textBox->AppendText(resulta);
 		break;
-	case 1019:
-		textBox->AppendText("Mod..ed minecraft");
+	case 1018: // hexidecimal
+		helper;
+		resulta = process->ToHexaString(ActResult);
+		textBox->AppendText(resulta); 
 		break;
-	case 1020:
-		textBox->AppendText("Dec..ember");
+	case 1019: // Moddulos
+		helper;
+		textBox->AppendText("%");
+		operand = '%';
+		break;
+	case 1020: // Decimal
+		helper;
+		textBox->AppendText(".");
 		break;
 	default:
 		textBox->Clear();

@@ -1,12 +1,22 @@
 #pragma once
 #include "wx/wx.h"
+#include <string>
 
+using namespace std;
 class Calculator : public wxFrame
 {
 public:
 	wxDECLARE_EVENT_TABLE();
 
 public:
+	float n1 = 0;
+	float n2 = 0;
+	float solution = 0;
+	string resulta= "";
+	float ActResult = 0;
+	char operand = ' ';
+	bool helper = false;
+
 	Calculator();
 	wxButton** func;
 

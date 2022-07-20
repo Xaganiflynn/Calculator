@@ -21,11 +21,7 @@ public:
 		return _processor;
 	}
 
-	float Addies(float n1, float n2);
-	float Subies(float n1, float n2);
-	float Divies(float n1, float n2);
-	float Multies(float n1, float n2);
-	float Moddies(float n1, float n2);
+	float AllPurpose(float n1, float n2, char operrand);
 
 	string ToBinaryString(float number);
 	string ToHexaString(float number);

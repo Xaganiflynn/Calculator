@@ -1,31 +1,37 @@
 #include "Processor.h"
+#include <string>
 
 Processor* Processor::_processor = nullptr;
 
-float Processor::Addies(float n1, float n2)
+
+float Processor::AllPurpose(float n1, float n2, char operand)
 {
-	return n1 + n2;
+	float ans = 0;
+	switch (operand)
+	{
+	case '+':
+		ans = n1 + n2;
+		break;
+	case '-':
+		ans = n1 - n2;
+		break;
+	case '*':
+		ans = n1 * n2;
+		break;
+	case '/':
+		ans = n1 / n2;
+		break;
+	case '%':
+		ans = ((int)n1 % (int)n2);
+		break;
+	default:
+		break;
+	}
+
+	return ans;
 }
 
-float Processor::Subies(float n1, float n2)
-{
-	return n1 - n2;
-}
 
-float Processor::Divies(float n1, float n2)
-{
-	return n1/n2;
-}
-
-float Processor::Multies(float n1, float n2)
-{
-	return n1*n2;
-}
-
-float Processor::Moddies(float n1, float n2)
-{
-	return ((int)n1 % (int)n2);
-}
 
 string Processor::ToBinaryString(float number)
 {
