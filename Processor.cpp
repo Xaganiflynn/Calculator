@@ -1,4 +1,5 @@
 #include "Processor.h"
+//#include "pch.h"
 #include <string>
 
 Processor* Processor::_processor = nullptr;
@@ -33,8 +34,7 @@ float Processor::AllPurpose(float n1, float n2, char operand)
 
 
 
-string Processor::ToBinaryString(float number)
-{
+string Processor::ToBinaryString(float number){
 	string result = "";
 
 	for (int i = 0; i < 16; i++)
@@ -50,8 +50,7 @@ string Processor::ToBinaryString(float number)
 	return result;
 }
 
-string Processor::ToHexaString(float number)
-{
+string Processor::ToHexaString(float number){
 	string result = "";
 
 	while(number > 0)

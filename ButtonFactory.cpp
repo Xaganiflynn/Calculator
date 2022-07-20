@@ -1,4 +1,6 @@
 #include "ButtonFactory.h"
+//#include "pch.h"
+
 
 wxButton* ButtonFactory::NumButton1(wxWindow* window)
 {
